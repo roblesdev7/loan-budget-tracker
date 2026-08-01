@@ -1,0 +1,37 @@
+# Deploy secrets (copy deploy.config.example → deploy.config locally)
+deploy.config
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Frontend dependencies & build
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE / editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# PHP (if Composer is added later)
+vendor/
+
+# Test / coverage
+coverage/

@@ -1,0 +1,16 @@
+Options -Indexes
+
+# Block access to sensitive files
+
+<FilesMatch "\.(env|log|ini|sql|md)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+RewriteEngine On
+
+# Route all requests to index.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.\*)$ index.php [QSA,L]

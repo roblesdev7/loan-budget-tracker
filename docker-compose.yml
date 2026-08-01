@@ -1,0 +1,27 @@
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: financeapp
+      MYSQL_USER: finance
+      MYSQL_PASSWORD: finance
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./database/migrations/001_recurring_categories.sql:/docker-entrypoint-initdb.d/02_recurring.sql
+      - ./database/migrations/002_phase_features.sql:/docker-entrypoint-initdb.d/03_features.sql
+
+  api:
+    image: php:8.2-cli
+    working_dir: /app
+    command: php -S 0.0.0.0:8000 -t .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env.example
+    depends_on:
+      - mysql

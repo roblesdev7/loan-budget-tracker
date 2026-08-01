@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Prevent iOS auto-zoom on focus (requires font-size >= 16px) */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+    /* Safe area for notched phones */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

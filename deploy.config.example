@@ -1,0 +1,25 @@
+# =============================================================================
+# deploy.config.example — Copia este archivo como deploy.config y edita.
+# deploy.config está en .gitignore (nunca lo subas a Git).
+# =============================================================================
+
+# ── SSH ───────────────────────────────────────────────────────────────────────
+# Alias definido en ~/.ssh/config (recomendado) o credenciales directas
+SSH_ALIAS="wordpress"
+
+# ── Rutas remotas ─────────────────────────────────────────────────────────────
+# Backend PHP
+REMOTE_BACKEND="/home/u123456789/domains/tudominio.com/public_html/api"
+
+# Raíz pública del dominio (portal / home page)
+REMOTE_FRONTEND="/home/u123456789/domains/tudominio.com/public_html"
+
+# App Loan & Budget (subcarpeta del dominio)
+REMOTE_FINANCE="/home/u123456789/domains/tudominio.com/public_html/finance"
+
+# ── URLs públicas ─────────────────────────────────────────────────────────────
+# Home page del dominio
+APP_PUBLIC_URL="https://tudominio.com"
+
+# URL del API (usado en el build de Vite como VITE_API_URL)
+API_PUBLIC_URL="https://tudominio.com/api/index.php"

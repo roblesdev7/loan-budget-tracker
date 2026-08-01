@@ -1,0 +1,16 @@
+Options -Indexes
+RewriteEngine On
+
+# API passthrough — backend PHP lives at /api/
+RewriteRule ^api(/.*)?$ - [L]
+
+# Finance SPA at /finance/
+RewriteCond %{REQUEST_URI} ^/finance/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^finance/.* finance/index.html [L]
+
+# Portal home page (domain root)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
